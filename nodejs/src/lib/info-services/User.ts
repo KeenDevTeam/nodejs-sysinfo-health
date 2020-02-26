@@ -1,26 +1,25 @@
 /**
- * CPU information
+ * User information
  */
 
 import os from "os";
 
 import IInfoService from "../interfaces/IInfoService";
 
-class CPU implements IInfoService {
+class User implements IInfoService {
 
     readonly name: string;
 
     constructor() {
-        this.name = "cpu";
+        this.name = "os";
     }
 
     async retrieve(): Promise<any> {
 
         return {
-            usage: process.cpuUsage(),
-            cores: os.cpus()
+            ...os.userInfo()
         };
     }
 }
 
-export default (config: any): IInfoService => new CPU();
+export default (config: any): IInfoService => new User();

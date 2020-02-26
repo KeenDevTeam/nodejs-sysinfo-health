@@ -2,7 +2,7 @@
  * Memory information
  */
 
-import OS from "os";
+import os from "os";
 
 import IInfoService from "../interfaces/IInfoService";
 
@@ -18,8 +18,8 @@ class Memory implements IInfoService {
 
         return {
             usage: process.memoryUsage(),
-            total: OS.totalmem(),
-            free: OS.freemem()
+            total: os.totalmem(),
+            free: os.freemem()
         };
     }
 }
