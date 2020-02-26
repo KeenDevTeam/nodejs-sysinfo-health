@@ -58,7 +58,7 @@ class InfoProvider implements IInfoProvider {
      * Retrieve the health service of all the providers
      * @param providers List of providers you want to retrieve data from (leave null/undefined to retrieve data from all the available providers)
      */
-    async retrieve(providers: Array<string> | null): Promise<any> {
+    async retrieve(providers: Array<string> | null | undefined): Promise<any> {
 
         if (!providers || (Array.isArray(providers) && providers.length === 0)) {
 
