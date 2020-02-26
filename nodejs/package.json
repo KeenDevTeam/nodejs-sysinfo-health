@@ -32,6 +32,7 @@
   },
   "homepage": "https://github.com/puzzleio/service-health#readme",
   "devDependencies": {
+    "@types/async": "^3.0.8",
     "@types/chai": "^4.2.9",
     "@types/express": "^4.17.2",
     "@types/mocha": "^7.0.1",
@@ -64,6 +65,7 @@
     "all": true
   },
   "dependencies": {
+    "async": "^3.2.0",
     "express": "^4.17.1"
   }
 }
