@@ -3,9 +3,13 @@
  */
 
 import * as webFramework from "./web-framework";
+import HealthService from "./HealthService";
+import InfoProvider from "./InfoProvider";
 
 const subModules = {
-    webFramework
+    webFramework,
+    HealthService,
+    InfoProvider
 };
 
 export default subModules;
