@@ -2,8 +2,8 @@
  * Express integration
  */
 
-import { Request as expressRequest, Response as expressResponse, Handler as expressHandler } from "express";
-import IHealthService from "../interfaces/IHealthService";
+import { Request as expressRequest, Response as expressResponse, Handler as expressHandler } from 'express';
+import IHealthService from '../interfaces/IHealthService';
 
 /**
  * Create health API endpoint for the express/express-compatible framework
@@ -13,7 +13,7 @@ import IHealthService from "../interfaces/IHealthService";
 export const createEndpoint = (healthService: IHealthService, services: Array<string> | null | undefined = null): expressHandler => {
 
     if (!healthService) {
-        throw new Error("healthService must be a valid instance of IHealthService");
+        throw new Error('healthService must be a valid instance of IHealthService');
     }
 
     return (req: expressRequest, res: expressResponse, next: (err: Error) => void) => {

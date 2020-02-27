@@ -2,8 +2,6 @@
  * Health service config
  */
 
-interface IHealthServiceConfig {
-
-}
+type IHealthServiceConfig = any;
 
 export default IHealthServiceConfig;
