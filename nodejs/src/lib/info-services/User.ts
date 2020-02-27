@@ -11,7 +11,7 @@ class User implements IInfoService {
     readonly name: string;
 
     constructor() {
-        this.name = "os";
+        this.name = "user";
     }
 
     async retrieve(): Promise<any> {

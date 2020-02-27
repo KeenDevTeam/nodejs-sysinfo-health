@@ -11,7 +11,7 @@ class OS implements IInfoService {
     readonly name: string;
 
     constructor() {
-        this.name = "os";
+        this.name = "OS";
     }
 
     async retrieve(): Promise<any> {

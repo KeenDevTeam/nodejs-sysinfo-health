@@ -4,19 +4,20 @@
 
 import 'mocha';
 import { expect } from 'chai';
-import { createCheckers } from "ts-interface-checker";
+import { createCheckers } from 'ts-interface-checker';
+
+import InfoServicesTests from "./info-services";
+import WebFrameworkTests from "./web-framework";
 
 import myLib from '../src';
 import HealthService from '../src/lib/HealthService';
 import InfoProvider from '../src/lib/InfoProvider';
 
-import MockInfoProvider from "./mock/MockInfoProvider";
-import { InfoProviderConfigEmpty } from "./mock/InfoProviderConfig";
+import MockInfoProvider from './mock/MockInfoProvider';
+import { InfoProviderConfigEmpty } from './mock/InfoProviderConfig';
 
-import IHealthServiceTI from "./interfaces/IHealthService-ti";
-import IHealthServiceConfigTypeCheck from "./interfaces/IHealthServiceConfig-ti";
-import IInfoProviderTI from "./interfaces/IInfoProvider-ti";
-import IInfoService from "./interfaces/IInfoService-ti";
+import IHealthServiceTI from './interfaces/IHealthService-ti';
+import IInfoProviderTI from './interfaces/IInfoProvider-ti';
 
 describe('My TS module', () => {
 
@@ -79,4 +80,7 @@ describe('My TS module', () => {
             expect(myLib.webFramework).to.have.property('Express').which.is.a('function');
         });
     });
+
+    describe('info-services', InfoServicesTests);
+    describe('web-framework', WebFrameworkTests);
 });

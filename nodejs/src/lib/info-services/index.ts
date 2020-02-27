@@ -9,7 +9,9 @@ import Path from "./Path";
 import Uptime from "./Uptime";
 import User from "./User";
 
-const factories: Record<string, (config: any) => any> = {
+import IInfoService from "../interfaces/IInfoService";
+
+const factories: Record<string, (config: any | null | undefined) => IInfoService> = {
 
     CPU,
     Memory,
