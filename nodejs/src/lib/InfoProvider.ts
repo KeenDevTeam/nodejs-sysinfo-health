@@ -29,15 +29,22 @@ class InfoProvider implements IInfoProvider {
      */
     private addAllDefaultProviders() {
 
+        if (!this.config.providerConfig) { return; }
+
         Object
             .keys(InfoProviders)
-            .map(providerName =>
+            .map(providerName => {
+
+                // strict null-check
+                let providerConfig = undefined;
+                if (this.config.providerConfig) {
+                    providerConfig = [providerName] || null;
+                }
+
                 this.addProvider(
-                    InfoProviders[providerName](
-                        this.config.providerConfig[providerName]
-                    )
+                    InfoProviders[providerName](providerConfig)
                 )
-            );
+            });
     }
 
     /**

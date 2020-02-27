@@ -12,7 +12,7 @@ type IInfoProviderConfig = {
     /**
      * Key/value pair of configuration
      */
-    readonly providerConfig: Record<string, any>;
+    readonly providerConfig: Record<string, any> | null | undefined;
 };
 
 export default IInfoProviderConfig;
