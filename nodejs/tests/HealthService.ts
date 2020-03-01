@@ -21,7 +21,7 @@ const runTests = () => {
         const instance = new HealthService({}, new MockInfoProvider());
 
         // interface check
-        const { IHealthServiceTI: IHealthServiceTypeChecker } = createCheckers(IHealthServiceTI);
+        const { IHealthService: IHealthServiceTypeChecker } = createCheckers(IHealthServiceTI);
         IHealthServiceTypeChecker.check(instance);
     });
 
