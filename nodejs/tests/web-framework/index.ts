@@ -36,6 +36,11 @@ const runTests = () => {
             done();
         });
 
+        it('should throw error', async function () {
+
+            expect(() => createExpressRoute(undefined)).throw('healthService must be a valid instance of IHealthService');
+        });
+
         it('should return no service', async function () {
 
             const response = await chai.request(this.ctx.appMocked).get('/none');

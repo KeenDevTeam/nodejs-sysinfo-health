@@ -8,6 +8,7 @@ import { createCheckers } from 'ts-interface-checker';
 
 import InfoServicesTests from "./info-services";
 import WebFrameworkTests from "./web-framework";
+import HealthServiceTests from "./HealthService";
 
 import myLib from '../src';
 import HealthService from '../src/lib/HealthService';
@@ -50,7 +51,7 @@ describe('My TS module', () => {
             expect(myLib.HealthService).to.be.a('function');
 
             // type check
-            const instance = new myLib.HealthService(undefined, new MockInfoProvider());
+            const instance = new myLib.HealthService({}, new MockInfoProvider());
             expect(instance).to.be.instanceOf(HealthService);
 
             // interface check
@@ -83,4 +84,5 @@ describe('My TS module', () => {
 
     describe('info-services', InfoServicesTests);
     describe('web-framework', WebFrameworkTests);
+    describe('HealthService', HealthServiceTests);
 });

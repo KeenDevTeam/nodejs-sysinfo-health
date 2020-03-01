@@ -7,9 +7,6 @@ import { createCheckers } from 'ts-interface-checker';
 
 import InfoServices from '../../src/lib/info-services';
 
-import CPU from '../../src/lib/info-services/CPU';
-
-import IInfoService from '../../src/lib/interfaces/IInfoService';
 import IInfoServiceTI from '../interfaces/IInfoService-ti';
 
 const runTests = () => {

@@ -10,7 +10,7 @@ import IHealthService from '../interfaces/IHealthService';
  * @param healthService Instance of health service
  * @param services List of services you want to retrieve service
  */
-export const createEndpoint = (healthService: IHealthService, services: Array<string> | null | undefined = null): expressHandler => {
+export const createEndpoint = (healthService: IHealthService | null | undefined, services: Array<string> | null | undefined = null): expressHandler => {
 
     if (!healthService) {
         throw new Error('healthService must be a valid instance of IHealthService');

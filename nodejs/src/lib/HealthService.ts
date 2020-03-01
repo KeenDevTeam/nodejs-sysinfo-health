@@ -8,10 +8,18 @@ import IHealthService from "./interfaces/IHealthService";
 
 class HealthService implements IHealthService {
 
-    private readonly config: IHealthServiceConfig | null | undefined;
+    private readonly config: IHealthServiceConfig;
     private readonly infoProvider: IInfoProvider;
 
-    constructor(config: IHealthServiceConfig | null | undefined, infoProvider: IInfoProvider) {
+    constructor(config: IHealthServiceConfig | null | undefined, infoProvider: IInfoProvider | null | undefined) {
+
+        if (!config) {
+            throw new Error('config cannot be null or undefined');
+        }
+
+        if (!infoProvider) {
+            throw new Error('infoProvider cannot be null or undefined');
+        }
 
         this.config = config;
         this.infoProvider = infoProvider;
