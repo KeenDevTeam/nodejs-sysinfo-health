@@ -1,6 +1,6 @@
 {
   "name": "@puzzleio/service-health",
-  "version": "1.0.4",
+  "version": "1.0.6",
   "description": "Shows current status of the service which can be used in health-check solutions",
   "main": "dist/index.js",
   "scripts": {
@@ -25,7 +25,7 @@
     "endpoint",
     "monitor"
   ],
-  "types": "index.d.ts",
+  "types": "dist/index.d.ts",
   "author": "PuzzleIO",
   "bugs": {
     "url": "https://github.com/puzzleio/service-health/issues"
