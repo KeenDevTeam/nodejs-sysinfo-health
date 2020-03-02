@@ -13,9 +13,13 @@ import InfoProviders from "./info-services";
 class InfoProvider implements IInfoProvider {
 
     private readonly config: IInfoProviderConfig;
-    private readonly providers: Record<string, IInfoService> = {};
+    private readonly _providers: Record<string, IInfoService> = {};
 
-    constructor(config: IInfoProviderConfig) {
+    constructor(config: IInfoProviderConfig | null | undefined) {
+
+        if (!config) {
+            throw new Error('config cannot be null or undefined');
+        }
 
         this.config = config;
 
@@ -29,8 +33,6 @@ class InfoProvider implements IInfoProvider {
      */
     private addAllDefaultProviders() {
 
-        if (!this.config.providerConfig) { return; }
-
         Object
             .keys(InfoProviders)
             .map(providerName => {
@@ -38,13 +40,19 @@ class InfoProvider implements IInfoProvider {
                 // strict null-check
                 let providerConfig = undefined;
                 if (this.config.providerConfig) {
-                    providerConfig = [providerName] || null;
+                    providerConfig = [providerName] || undefined;
                 }
 
-                this.addProvider(
-                    InfoProviders[providerName](providerConfig)
-                )
+                // add to the providers list
+                this.addProvider(InfoProviders[providerName](providerConfig));
             });
+    }
+
+    /**
+     * Get list of registered providers
+     */
+    get providers(): Record<string, IInfoService> {
+        return this._providers;
     }
 
     /**
@@ -53,12 +61,12 @@ class InfoProvider implements IInfoProvider {
      */
     addProvider(provider: IInfoService): void {
 
-        if (this.providers[provider.name]) {
+        if (this._providers[provider.name]) {
             throw new Error(`Provider ${provider.name} as already been registered.`);
         }
 
         // add provider
-        this.providers[provider.name] = provider;
+        this._providers[provider.name] = provider;
     }
 
     /**
@@ -70,21 +78,32 @@ class InfoProvider implements IInfoProvider {
         if (!providers || (Array.isArray(providers) && providers.length === 0)) {
 
             // add all services
-            providers = Object.keys(this.providers);
+            providers = Object.keys(this._providers);
         }
 
         const output: Record<string, any> = {};
+        const concurrencyLevel = providers.length < 1 ? 1 : providers.length;
 
         await forEachParallel(
             providers,
-            providers.length,
-            async (providerName) => {
+            concurrencyLevel,
+            (providerName, cb) => {
 
-                const provider = this.providers[providerName];
-                const result = await provider.retrieve();
+                try {
 
-                if (result) {
-                    output[provider.name] = result;
+                    const provider = this._providers[providerName];
+                    provider.retrieve()
+                        .then(result => {
+
+                            output[provider.name] = result;
+                            return cb();
+                        })
+                        .catch(err => {
+                            throw err;
+                        });
+                }
+                catch (err) {
+                    return cb(err);
                 }
             }
         );
