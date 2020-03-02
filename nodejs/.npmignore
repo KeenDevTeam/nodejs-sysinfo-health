@@ -9,3 +9,5 @@ tests/
 .npmignore
 
 tsconfig.json
+
+.env
