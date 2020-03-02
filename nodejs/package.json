@@ -1,6 +1,6 @@
 {
   "name": "@puzzleio/service-health",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Shows current status of the service which can be used in health-check solutions",
   "main": "dist/index.js",
   "scripts": {

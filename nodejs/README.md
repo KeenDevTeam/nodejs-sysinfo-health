@@ -1,6 +1,6 @@
-# NodeJS module (TypeScript)
+# Health service
 
-Try to describe your module briefly here. This is the first part that takes the user's attention.
+This module provides some information about your service.
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
@@ -11,24 +11,43 @@ Try to describe your module briefly here. This is the first part that takes the 
 ```sh
 
 # NPM
-npm i your-module-name --save
+npm i @puzzleio/service-health --save
 
 # Yarn
-yarn install your-module-name
+yarn install @puzzleio/service-health
 
 ```
+
+## Parts
+
+This module consists of 3 main parts.
+
+1. HealthService (which is responsible for retrieving health information from the requested providers).
+2. InfoProvider (which is responsible for providing health information)
+3. WebFramework (which is responsible for integrating with the web frameworks).
 
 ## Usage
 
 ```js
 
-const MyModule = require('your-module-name');
+const serviceHealth = require('@puzzleio/service-health');
 
-const instance = new MyModule({
-    /**
-     * Your configuration
-     */
+const infoProvider = new serviceHealth.InfoProvider({
+    loadDefaultProviders: true
 });
+
+const healthProvider = new serviceHealth.HealthProvider(config, infoProvider);
+
+// inside your async function, try
+const health = await healthProvider.retrieve();
+
+// returns an object that contains the health information
+
+
+// you can return only the information about specific parts of the hardware/software
+// by providing the list of modules
+// built-in info services: CPU, memory, OS, path, uptime, user
+const health = await healthProvider.retrieve(['CPU', 'memoy']);
 
 ```
 

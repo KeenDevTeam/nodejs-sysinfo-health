@@ -11,7 +11,7 @@ class CPU implements IInfoService {
     readonly name: string;
 
     constructor() {
-        this.name = "cpu";
+        this.name = "CPU";
     }
 
     async retrieve(): Promise<any> {

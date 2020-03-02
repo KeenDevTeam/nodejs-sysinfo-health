@@ -79,7 +79,7 @@ const runTests = () => {
             providerConfig: undefined
         });
 
-        expect(() => instance.addProvider(CPUInfoProvider(undefined))).throws(`Provider cpu as already been registered.`);
+        expect(() => instance.addProvider(CPUInfoProvider(undefined))).throws(`Provider CPU as already been registered.`);
     });
 
     it('should return all the providers info', async () => {
@@ -101,10 +101,10 @@ const runTests = () => {
             providerConfig: undefined
         });
 
-        const result = await instance.retrieve(['cpu']);
+        const result = await instance.retrieve(['CPU']);
 
         expect(Object.keys(result)).to.has.lengthOf(1);
-        expect(result.cpu).to.be.an('object');
+        expect(result.CPU).to.be.an('object');
     }).timeout('5s');
 
     // it('should throw error if infoProvider is null', () => {
