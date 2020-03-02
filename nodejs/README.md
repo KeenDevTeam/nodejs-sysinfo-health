@@ -38,9 +38,9 @@ And you're good to go!
 
 MIT
 
-[npm-image]: https://img.shields.io/npm/v/@itemsjs/config.svg?color=orange
-[npm-url]: https://npmjs.org/package/@itemsjs/config
-[downloads-image]: https://img.shields.io/npm/dt/@itemsjs/config.svg
-[downloads-url]: https://npmjs.org/package/@itemsjs/config
+[npm-image]: https://img.shields.io/npm/v/@puzzleio/service-health.svg?color=orange
+[npm-url]: https://npmjs.org/package/@puzzleio/service-health
+[downloads-image]: https://img.shields.io/npm/dt/@puzzleio/service-health.svg
+[downloads-url]: https://npmjs.org/package/@puzzleio/service-health
 [coveralls-image]: http://coveralls.io
 [coveralls-url]: https://coveralls.io

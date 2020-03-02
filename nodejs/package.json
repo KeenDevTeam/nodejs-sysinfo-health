@@ -1,7 +1,6 @@
 {
   "name": "@puzzleio/service-health",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.3",
   "description": "Shows current status of the service which can be used in health-check solutions",
   "main": "dist/index.js",
   "scripts": {
@@ -10,6 +9,7 @@
     "rebuild": "run-s clean build",
     "test": "mocha --require ts-node/register tests/index.ts",
     "coverage": "nyc npm run test",
+    "precoveralls": "export $(cat .env | xargs) && env",
     "coveralls": "cat coverage/lcov.info | coveralls",
     "prepublish": "run-s rebuild coverage",
     "postpublish": "run-s coveralls"
