@@ -9,6 +9,7 @@ import { createCheckers } from 'ts-interface-checker';
 import InfoServicesTests from "./info-services";
 import WebFrameworkTests from "./web-framework";
 import HealthServiceTests from "./HealthService";
+import InfoProviderTests from "./InfoProvider";
 
 import myLib from '../src';
 import HealthService from '../src/lib/HealthService';
@@ -85,4 +86,5 @@ describe('My TS module', () => {
     describe('info-services', InfoServicesTests);
     describe('web-framework', WebFrameworkTests);
     describe('HealthService', HealthServiceTests);
+    describe('InfoProvider', InfoProviderTests);
 });
