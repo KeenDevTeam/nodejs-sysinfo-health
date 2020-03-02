@@ -19,7 +19,7 @@ class Uptime implements IInfoService {
         return {
             process: {
                 uptime: process.uptime(),
-                hrtime: process.hrtime,
+                hrtime: process.hrtime(),
             },
 
             os: {
