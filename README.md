@@ -1,6 +1,6 @@
-# Health service
+# SpeedUP Health service
 
-This module provides some information about your service.
+This module provides some information about your service health.
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]

@@ -21,7 +21,7 @@ import { InfoProviderConfigEmpty } from './mock/InfoProviderConfig';
 import IHealthServiceTI from './interfaces/IHealthService-ti';
 import IInfoProviderTI from './interfaces/IInfoProvider-ti';
 
-describe('My TS module', () => {
+describe('SpeedUP|SysInfo|Health', () => {
 
     describe('Module integrity', () => {
 

@@ -1,5 +1,5 @@
 {
-  "name": "@puzzleio/service-health",
+  "name": "@speedup/sysinfo-health",
   "version": "1.0.6",
   "description": "Shows current status of the service which can be used in health-check solutions",
   "main": "dist/index.js",
