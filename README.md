@@ -4,17 +4,16 @@ This module provides some information about your service.
 
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
-[![Coverage Status][coveralls-image]][coveralls-url]
 
 ## Installation
 
 ```sh
 
 # NPM
-npm i @puzzleio/service-health --save
+npm i @speedup/sysinfo-health --save
 
 # Yarn
-yarn install @puzzleio/service-health
+yarn install @speedup/sysinfo-health
 
 ```
 
@@ -30,7 +29,7 @@ This module consists of 3 main parts.
 
 ```js
 
-const serviceHealth = require('@puzzleio/service-health');
+const serviceHealth = require('@speedup/sysinfo-health');
 
 const infoProvider = new serviceHealth.InfoProvider({
     loadDefaultProviders: true
@@ -57,9 +56,7 @@ And you're good to go!
 
 MIT
 
-[npm-image]: https://img.shields.io/npm/v/@puzzleio/service-health.svg?color=orange
-[npm-url]: https://npmjs.org/package/@puzzleio/service-health
-[downloads-image]: https://img.shields.io/npm/dt/@puzzleio/service-health.svg
-[downloads-url]: https://npmjs.org/package/@puzzleio/service-health
-[coveralls-image]: http://coveralls.io
-[coveralls-url]: https://coveralls.io
+[npm-image]: https://img.shields.io/npm/v/@speedup/sysinfo-health.svg?color=orange
+[npm-url]: https://npmjs.org/package/@speedup/sysinfo-health
+[downloads-image]: https://img.shields.io/npm/dt/@speedup/sysinfo-health.svg
+[downloads-url]: https://npmjs.org/package/@speedup/sysinfo-health
