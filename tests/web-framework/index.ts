@@ -8,6 +8,7 @@ import chaiHttp from 'chai-http';
 import Express from 'express';
 
 import { createEndpoint as createExpressRoute } from "../../src/lib/web-framework/Express";
+import { createEndpoint as createMicroRoute } from "../../src/lib/web-framework/Micro";
 
 import MockHealthService from '../mock/MockHealthService';
 
@@ -68,6 +69,24 @@ const runTests = () => {
 
             expect(response.body.length).to.be.eq(this.ctx.services.length);
         });
+    });
+
+    describe('micro', () => {
+
+        it('should throw error', async function () {
+
+            expect(() => createMicroRoute(undefined)).throw('healthService must be a valid instance of IHealthService');
+        });
+
+        it('should return all services', async function () {
+
+            const response = await chai.request(this.ctx.appMocked).get('/all');
+
+            expect(response.status).to.be.eq(200);
+            expect(response.body).to.be.an('array');
+
+            expect(response.body.length).to.be.eq(this.ctx.services.length);
+        });        
     });
 };
 

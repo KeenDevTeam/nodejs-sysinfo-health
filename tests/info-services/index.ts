@@ -189,7 +189,7 @@ const runTests = () => {
                 expect(result).to.have.property('username').which.is.a('string');
                 expect(result).to.have.property('uid').which.is.a('number');
                 expect(result).to.have.property('gid').which.is.a('number');
-                expect(result).to.have.property('shell').which.is.an('string');
+                expect(result).to.have.property('shell').to.be.oneOf(['string', null]);
                 expect(result).to.have.property('homedir').which.is.an('string');
             });
         });
